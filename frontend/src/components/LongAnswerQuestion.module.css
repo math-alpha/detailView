@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+
+.questionContainer {
+    margin-bottom: 30px;
+}
+
+.questionText {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-family: 'Libre Baskerville', serif;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+    line-height: 1.5;
+    background-color: #fafafa;
+}
+
+.textarea:focus {
+    outline: none;
+    border-color: #0070f3;
+    box-shadow: 0 0 5px rgba(0, 112, 243, 0.5);
+}
+
+@media (max-width: 600px) {
+    .textarea {
+        font-size: 0.95rem;
+    }
+}

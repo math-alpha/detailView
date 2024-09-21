@@ -1,0 +1,113 @@
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* Title */
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Meta Data */
+  .metaData {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .metaData p {
+    margin: 0;
+  }
+  
+  /* Instructions */
+  .instructions {
+    background-color: #f1f1f1;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-left: 5px solid #0070f3;
+  }
+  
+  .instructions p {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+  
+  /* Questions */
+  .questions {
+    margin-bottom: 40px;
+  }
+  
+  /* Button Container */
+  .buttonContainer {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .submitButton {
+    background-color: #0070f3;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #005bb5;
+  }
+  
+  .submitButton:active {
+    background-color: #003d80;
+  }
+  
+  .submitButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+    }
+  
+    .metaData {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .submitButton {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .title {
+      font-size: 1.5rem;
+    }
+  
+    .instructions {
+      padding: 15px;
+    }
+  
+    .submitButton {
+      font-size: 1rem;
+      padding: 12px;
+    }
+  }
+  

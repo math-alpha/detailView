@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-geist: 'Geist', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+h1 {
+  color: #333;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Primary Button */
+.buttonPrimary {
+  background-color: #28a745;
+  color: #fff;
+}
+
+/* Secondary Button */
+.buttonSecondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+/* Danger Button */
+.buttonDanger {
+  background-color: #dc3545;
+  color: #fff;
+}
