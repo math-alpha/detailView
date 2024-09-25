@@ -1,0 +1,73 @@
+services:
+    nginx:
+        container_name: proxy
+        build:
+            context: ./nginx
+            dockerfile: Dockerfile
+        env_file:
+            - .env
+        environment:
+            - BACKEND_HOST=$BACKEND_HOST
+            - BACKEND_PORT=$BACKEND_PORT
+            - FRONTEND_HOST=$FRONTEND_HOST
+            - FRONTEND_PORT=$FRONTEND_PORT
+        ports:
+            - '82:80'
+        depends_on:
+            - frontend
+            - backend
+        networks:
+            - app-network
+
+    frontend:
+        container_name: ui
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        environment:
+            - NEXT_PUBLIC_API_URL=/api
+        depends_on:
+            - backend
+        networks:
+            - app-network
+
+    backend:
+        container_name: backend
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        environment:
+            - DATABASE_URL=postgresql://postgres:postgres@db:5432/examdb
+            - REDIS_URL=redis://redis:6379/0
+        depends_on:
+            - db
+            - redis
+        networks:
+            - app-network
+
+    db:
+        container_name: database
+        image: postgres:13.9
+        restart: always
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_DB=examdb
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+        networks:
+            - app-network
+
+    redis:
+        container_name: cache
+        image: redis:6-alpine
+        restart: always
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    postgres-data:
